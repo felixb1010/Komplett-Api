@@ -33,6 +33,8 @@ App.get('/api/:id', (req, res) => {
 
       const itemSatus = status(button, buyButton)
 
+      items = []
+
       items.push({
         id: req.params.id,
         title: title,
