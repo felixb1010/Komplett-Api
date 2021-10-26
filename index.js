@@ -18,6 +18,7 @@ function status(button, buyButton) {
 
 App.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*")
+  next()
 }) 
 
 App.get('/', (req, res) => {
