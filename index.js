@@ -25,6 +25,10 @@ App.get('/', (req, res) => {
   res.json(`success on Port ${PORT}`)
 })
 
+App.get('/.well-known/pki-validation/', (req, res) => {
+    res.sendFile(__dirname + './F56902457B9DF6F4E0EC4AFED19EBB01.txt')
+})
+
 App.get('/api/:id', (req, res) => {
     axios.get(`https://www.komplett.no/product/${req.params.id}`)
     .then((response) => {
