@@ -16,6 +16,10 @@ function status(button, buyButton) {
   }
 }
 
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*")
+}) 
+
 App.get('/', (req, res) => {
   res.json(`success on Port ${PORT}`)
 })
