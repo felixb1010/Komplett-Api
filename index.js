@@ -8,9 +8,9 @@ var items = []
 
 function status(button, buyButton) {
   if (button.length > 0) {
-    return false;
+    return 'Buy'
   } else if (buyButton.length > 0) {
-    return true;
+    return 'Not Available'
   } else {
     return false;
   }
