@@ -52,10 +52,11 @@ App.get('/api/:id', (req, res) => {
     }) 
     .catch((err) => {
       console.error(err)
-      res.json(items)
+      items = []
       items.push({
         error: err.message,
       })
+      res.json(items)
     })
 })
 
