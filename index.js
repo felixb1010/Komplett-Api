@@ -18,9 +18,9 @@ var storage = [
 
 function status(button, buyButton) {
   if (button.length > 0) {
+    return 'Not Avalible'
+  } else if (buyButton.length > 0) {
     return 'Buy'
-  } else if (buyButton.length <= 0) {
-    return 'Not Available'
   } else {
     return false;
   }
@@ -57,6 +57,9 @@ App.route('/items')
       case 'Dustin':
         valid(1, 6)
         break;
+      default:
+        res.status(400).json('Invalid Store')
+        break;
     }
 
     function valid(low, high) {
@@ -65,11 +68,12 @@ App.route('/items')
         .then((response) => {
           const html = response.data
           const $ = cheerio.load(html)
-    
           const title = $('.product-main-info-webtext1').text().trim()
           const price = $('.product-price-now').text()
           const button = $('.subscribe-button__element')
+          console.log(button)
           const buyButton = $('.buy-button')
+          console.log(buyButton)
           const itemSatus = status(button, buyButton)
           if(price.length > 0) {
             items.push({
@@ -90,7 +94,7 @@ App.route('/items')
           res.status(400).json('Error Connecting to Store')
         })
       } else {
-        res.json('400 Not Valid id')
+        res.status(400).json('invalid id')
       }
     }
     
@@ -107,13 +111,6 @@ App.route('/items')
     }
     
   })
-
-App.get('/items/update', (req, res) => {
-  res.status(200)
-})
-
-
-
 
 App.get('/', (req, res) => {
   res.json(`success on Port ${PORT}`)
