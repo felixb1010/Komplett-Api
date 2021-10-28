@@ -16,14 +16,10 @@ var storage = [
   },
 ]
 
-const remove = (item, array) => {
-  
-}
-
 function status(button, buyButton) {
   if (button.length > 0) {
     return 'Buy'
-  } else if (buyButton.length > 0) {
+  } else if (buyButton.length <= 0) {
     return 'Not Available'
   } else {
     return false;
