@@ -90,6 +90,7 @@ App.route('/items')
           }) 
         .catch((err) => {
           console.error(err.message)
+          console.log(err)
           res.status(400).json('Error Connecting to Store')
         })
       } else {
