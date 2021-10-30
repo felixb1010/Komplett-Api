@@ -7,14 +7,6 @@ const bodyParser = require('body-parser');
 
 const App = express();
 var items = []
-var storage = [
-  {
-    id: '1189592'
-  },
-  {
-    id: '1187631'
-  },
-]
 
 function status(button, buyButton) {
   if (button.length > 0) {
